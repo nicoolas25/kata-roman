@@ -7,3 +7,4 @@ Feature: Adding two roman number
   Scenarios:
       | number1 | number2 | result |
       |      XX |      II |   XXII |
+      |      II |      II |     IV |
