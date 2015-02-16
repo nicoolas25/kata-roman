@@ -8,3 +8,4 @@ Feature: Adding two roman number
       | number1 | number2 | result |
       |      XX |      II |   XXII |
       |      II |      II |     IV |
+      |      II |      XX |   XXII |
