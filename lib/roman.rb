@@ -14,7 +14,10 @@ module Roman
   end
 
   def self.parse(roman)
-    roman.chars.map{ |char| VALUES[char] }.inject(0, &:+)
+    roman = roman.gsub('IV', '4')
+    values = roman.chars.
+      map{ |char| VALUES[char] || char.to_i }.
+      inject(0, &:+)
   end
 
   def self.dump(number)
