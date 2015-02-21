@@ -10,8 +10,20 @@ module Roman
   }.freeze
 
   def self.add(a, b)
-    (a + b)
-      .chars.sort_by{ |char| VALUES[char] }.reverse.join
-      .gsub('IIII', 'IV')
+    dump(parse(a) + parse(b))
+  end
+
+  def self.parse(roman)
+    roman.chars.map{ |char| VALUES[char] }.inject(0, &:+)
+  end
+
+  def self.dump(number)
+    result = ''
+    q, r = number.divmod(10)
+    result += 'X' * q
+    q, r = r.divmod(5)
+    result += 'X' * q
+    result += 'I' * r
+    result.gsub('IIII', 'IV')
   end
 end
