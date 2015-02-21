@@ -9,3 +9,4 @@ Feature: Adding two roman number
       |      XX |      II |   XXII |
       |      II |      II |     IV |
       |      II |      XX |   XXII |
+      |      VI |    VIII |    XIV |
