@@ -18,12 +18,14 @@ module Roman
   end
 
   def self.dump(number)
-    result = ''
-    q, r = number.divmod(10)
-    result += 'X' * q
-    q, r = r.divmod(5)
-    result += 'X' * q
-    result += 'I' * r
-    result.gsub('IIII', 'IV')
+    result = VALUES.keys.reverse.reduce('') do |result, roman|
+      count, number = number.divmod(VALUES[roman])
+      result + (roman * count)
+    end
+    result.
+      gsub('IIII', 'IV').
+      gsub('VV', 'X').
+      gsub('LL', 'C').
+      gsub('DD', 'M')
   end
 end
