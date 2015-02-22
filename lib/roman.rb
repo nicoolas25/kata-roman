@@ -14,10 +14,15 @@ module Roman
   end
 
   def self.parse(roman)
-    roman = roman.gsub('IV', '4')
-    values = roman.chars.
-      map{ |char| VALUES[char] || char.to_i }.
-      inject(0, &:+)
+    roman.chars.each_with_object([]) do |char, values|
+      value = VALUES[char]
+      if (last_value = values[-1]) && value > last_value
+        values.pop
+        values << value - last_value
+      else
+        values << value
+      end
+    end.inject(0, &:+)
   end
 
   def self.dump(number)
@@ -25,8 +30,10 @@ module Roman
       count, number = number.divmod(VALUES[roman])
       result + (roman * count)
     end
+
     result.
       gsub('IIII', 'IV').
+      gsub('VIV', 'IVV').
       gsub('VV', 'X').
       gsub('LL', 'C').
       gsub('DD', 'M')

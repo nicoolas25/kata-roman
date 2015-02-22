@@ -11,3 +11,5 @@ Feature: Adding two roman number
       |      II |      XX |   XXII |
       |      VI |    VIII |    XIV |
       |      IV |      VI |      X |
+      |      VI |     III |     IX |
+      |     LIV |    CLVI |    CCX |
