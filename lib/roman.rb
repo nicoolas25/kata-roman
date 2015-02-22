@@ -33,7 +33,9 @@ module Roman
 
     result.
       gsub('IIII', 'IV').
+      gsub('CCCC', 'CD').
       gsub('VIV', 'IVV').
+      gsub('DCD', 'CDD').
       gsub('VV', 'X').
       gsub('LL', 'C').
       gsub('DD', 'M')
